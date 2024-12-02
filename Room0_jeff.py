@@ -173,7 +173,7 @@ class Room:
             sys.exit(0)
 
     def show_help(self):
-        print("Available commands: move, go, look, get, take, drop, inventory, stats, quit, help")
+        print("Available commands: move, go, look, get, take, drop, inventory, stats, quit, help, fasttravel")
 
     def show_hint(self):
         print("This is the starting room. You probably ought to get the lamp and go down the well.")

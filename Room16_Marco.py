@@ -31,7 +31,7 @@ class Room:
         recycler = OxygenRecycler("Oxygen Recycler", "A complex machine maintaining life support systems", True, "offline", True)
         self.objects.append(recycler)
         
-        self.exits = ["airlock"]
+        self.exits = ["east","south"]
 
     def enter(self, player):
         self.describe_room()
@@ -89,7 +89,7 @@ class Room:
                     print(f"There is a {obj.name} here.")
 
     def move(self, direction):
-        if direction in ["airlock", "forward"]:
+        if direction in ["right","r","east","e","south","s","down","d"]:
             print("You carefully navigate through the damaged airlock...")
             return 2  # Example: Transition to Room 2
         else:

@@ -76,7 +76,7 @@ class Room:
     def move(self, direction):
         if direction in ["south", "s"]:
             print("You leave the casino room through the southern door.")
-            return "north"
+            return "south"
         elif direction in ["down", "d"]:
             print("You leave the casino room through the downward door.")
             return "down"

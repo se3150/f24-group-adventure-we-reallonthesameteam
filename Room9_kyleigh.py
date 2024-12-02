@@ -98,10 +98,10 @@ class Room:
     def move(self, direction):
         if direction in ["east", "e", "left", "l"]:
             print("You enter a door that looks like it is dripping wet but you can't tell what the liquid is.")
-            return "left"
+            return "east"
         elif direction in ["south", "s", "down", "d"]:
             print("You walk towards a red door with paint that is chipping along the sides. The door slowly opens as you walk towards it.")
-            return "down"
+            return "south"
         else:
             print("You can't go that way.")
             return None

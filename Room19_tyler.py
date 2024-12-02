@@ -19,6 +19,8 @@ class Room:
     def enter(self, player):
         # step 1 - Print the room description
         self.describe_room()
+        print("Here are 10 points to start gambling with.")
+        player.score += 10
 
         # step 2: command loop
         while True:

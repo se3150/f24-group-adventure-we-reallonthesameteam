@@ -30,7 +30,7 @@ class Grave(Object):
             player.health = 0
         print(f"{player.name}'s health is now {player.health}.")
 
-class Room13_David:
+class Room:
     def __init__(self):
         self.objects = [Crow("Crow", "A menacing crow with sharp eyes.", True, None, True),
                         Chucky("Chucky Doll", "A creepy Chucky doll with a knife.", True, None, True),
@@ -42,7 +42,7 @@ class Room13_David:
             "and a clown watches you with a grin that seems too wide to be real. A grave rests in one corner of the room, "
             "its earth freshly disturbed."
         )
-        self.exits = None
+        self.exits = ["east", "down"]
 
     def check_health(self, player):
         if player.health <= 0:
@@ -117,3 +117,5 @@ Available Commands:
                 print("Unknown command.")
             
             self.check_health(player)
+
+

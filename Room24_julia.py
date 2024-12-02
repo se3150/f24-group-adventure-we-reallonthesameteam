@@ -37,7 +37,8 @@ class Room:
         self.describe_room()
 
         while True:
-            command = input("> ").lower().strip()
+            command = input("> ").lower
+            ().strip()
             parts = command.split(" ", 1)
             command_base = parts[0]
 

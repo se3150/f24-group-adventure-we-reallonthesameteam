@@ -465,4 +465,4 @@ class Room:
         #print(f"\n{player.name}, {self.message_to_players}")
         #print(f"Final score: {player.score}")
         #sys.exit(0)
-        return "down"
+        return "end"

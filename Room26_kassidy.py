@@ -121,14 +121,14 @@ class Room:
             elif command in ["go east", "move east"]:
                 print("You move east.")
                 return "east"
-            elif command in ["go south", "move south"]:
+            elif command in ["go door", "move door"]:
                 #can only do this if doors state is open 
                 door = self.get_object_by_name("door")
                 if door.state == "blocked":
                     print("The door is blocked, you can't leave")
                 else:
-                    print("You move south.")
-                    return "south"
+                    print("You go through the door..")
+                    return "down"
             elif command in ["stats"]:
                 print("Player Stats:")
                 print(f"Health: {player.health}")

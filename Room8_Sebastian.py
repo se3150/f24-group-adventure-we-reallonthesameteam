@@ -154,8 +154,8 @@ class Room:
         
     def describe_room(self):
         print(self.description)
-        if self.objects:
-            for obj in self.objects:
+        if self.object:
+            for obj in self.object:
                 if obj.visible:
                     print(f"There is a {obj.name} here.")
                     
@@ -164,11 +164,11 @@ class Room:
                 print("You walk through the doorway to the west.")
                 print("You notice a key hanging on the wall.")
                 
-                key = next((obj for obj in self.objects if isinstance(obj, Object) and obj.name == "key"), None)
+                key = next((obj for obj in self.object if isinstance(obj, Object) and obj.name == "key"), None)
                 if key and key.can_be_gotten:
                     player.inventory.append(key)
                     print(f"{player.name} has picked up the {key.name}. It has been added to your inventory.")
-                    self.objects.remove(key) 
+                    self.object.remove(key) 
                 else:
                     print("There is no key to pick up.")
 
@@ -177,7 +177,7 @@ class Room:
         elif direction in ["east", "e"]:
             print("You see a door leading back to Room 9.")
             print("Next to the door, there’s a chest.")
-            chest = next((obj for obj in self.objects if isinstance(obj, Chest)), None)
+            chest = next((obj for obj in self.object if isinstance(obj, Chest)), None)
             if chest:
                 chest.use(player)
             return 9  
@@ -186,7 +186,7 @@ class Room:
             return 7 
         elif direction in ["south", "s"]:
             print("You move to the left side of the room.")
-            creature = next((obj for obj in self.objects if isinstance(obj, Creature)), None)
+            creature = next((obj for obj in self.object if isinstance(obj, Creature)), None)
             if creature:
                 print("The creature attacks!")
                 creature.use(player)

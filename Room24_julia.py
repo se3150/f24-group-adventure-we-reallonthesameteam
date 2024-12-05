@@ -47,7 +47,7 @@ class Room:
                 other_part = ""
 
             if command_base in ["move", "go"]:
-                next = self.move(other_part)
+                next = self.move(other_part,player)
                 if(next != None):
                     return next
             
@@ -88,10 +88,10 @@ class Room:
                 if obj.visible:
                     print(f"There is a {obj.name} here.")
 
-    def move(self, direction):
+    def move(self, direction,player):
         if direction in ["west", "w"]:
             print("You walk through the doorway to the west.")
-            return 23
+            return "west"
         elif direction in ["down", "d"]:
             # check crystal before going down
             crystal_on = False
@@ -99,10 +99,15 @@ class Room:
                 if obj.name == "crystal" and obj.state == "on":
                     crystal_on = True
                     break
+
+            for obj in player.inventory:
+                if obj.name == "crystal" and obj.state == "on":
+                    crystal_on = True
+                    break
             
             if crystal_on:
                 print("The crystal's light helps you see the stairs as you go down.")
-                return 25
+                return "down"
             else:
                 print("It's too dark to go down the stairs safely.")
                 return None

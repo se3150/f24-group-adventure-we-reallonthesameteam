@@ -73,7 +73,7 @@ class Room:
 
             #Do the command - You should make helper functions for each of these in your room as well.
             if command_base in ["ticket-booth"]:
-                self.move(player)
+                self.move("ticket-booth", player)
                 
             
             elif command_base == "look":

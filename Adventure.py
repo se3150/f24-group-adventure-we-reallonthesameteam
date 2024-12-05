@@ -152,18 +152,25 @@ def main():
         # Handle standard movement commands
         next_direction = result
 
-        if next_direction not in game_map[current_room]:
-            print(f"room {current_room} tried to go {next_direction} and that's not in the game_map:")
-            print(game_map[current_room])
-            sys.exit(0)
-
-        # Set the current room to the one connected in the specified direction
-        current_room = game_map[current_room][next_direction]
-
         # Check if the player is dead
         if not player.is_alive():
             print("You have perished in the dungeon! Game over. Your score is: ", player.score)
             return
+
+        if next_direction == "end":
+            print("You have successfully exited the dungeon! Congratulations!\n")
+            player.print_stats()
+            return
+
+        if next_direction not in game_map[current_room]:
+            print(f"room {current_room} tried to go {next_direction} and that's not in the game_map:")
+            print(game_map[current_room])
+            return
+
+        # Set the current room to the one connected in the specified direction
+        current_room = game_map[current_room][next_direction]
+
+        
 
 # Run the game
 if __name__ == "__main__":

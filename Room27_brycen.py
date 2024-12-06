@@ -461,8 +461,8 @@ class Room:
         print("You can't do that here. Try something else or type 'help' for options or 'hint' for a clue.")
 
     def win_conditions(self, player):
-        #print(self.winning_statements)
-        #print(f"\n{player.name}, {self.message_to_players}")
-        #print(f"Final score: {player.score}")
-        #sys.exit(0)
-        return "end"
+        print(self.winning_statements)
+        print(f"\n{player.name}, {self.message_to_players}")
+        print(f"Final score: {player.score}")
+        sys.exit(0)
+        #return "end"

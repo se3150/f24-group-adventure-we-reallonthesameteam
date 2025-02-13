@@ -44,6 +44,7 @@ end,5
 + look "item" - provides a description of the item. the item can be in the player's inventory or it can be in an object array in the room. If no "item" is given, the room description is printed.
 + get, take "item" - allows the player to pick up the item and put it into their inventory. The room must create an object of type Object for the player to pick it up. (See Objects) below.
 + drop "item" - allows the player to remove an item from their inventory and place it in the room's list of Objects.
++ use "item" - the "item" can be in the PLAYERs inventory or in the room. The "item" does not have to be pick-up-able. Meaning that there could be some room feature that would work with "use" as well.
 + inventory - prints out the items in the PLAYERs inventory.
 + stats - prints out the PLAYERs statistics
 + help,? - prints out the list of commands

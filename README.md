@@ -52,11 +52,11 @@ end,5
 + quit - asks "Are you sure? (y/n) and if y prints out the player stats and ends the game.
 
 15. Rooms can also support any custom commands that will support solving the puzzle. For example, a room could have a fountain in it, and the PLAYER could say "drink fountain" and the room would respond with a result. If the puzzle is hard, giving a hint is a good idea to keep the players from rage quitting.
-16. OBJECTS - PLAYERS have an inventory and rooms have an list of Objects. Rooms must support dropping items so they MUST support an object list in some way. It doesn't matter what the room's object list is called, only that when a player drops something it goes out of the inventory and into the room's object list. If the player wants to get the object again, they should be able to do so. You could also make it so that the object would get destroyed if they did something crazy with it. Like there could be a pit in the room and the PLAYER could say "throw lamp in pit" and the result could be that the lamp is now gone.
-    + All game Objects inherit from a base Object class that has a pure virtual function called "use"
-    + You create an object by subclassing Object and implementing the use function.
+16. OBJECTS and PLAYERS. PLAYERS have an inventory and rooms have a list of OBJECTS. Rooms must support dropping items so they MUST support an object list in some way. It doesn't matter what the room's object list is called, only that when a player drops something it goes out of the inventory and into the room's object list. If the player wants to get the object again, they should be able to do so (unless dropping it in the room causes some room action to happen that consumes the item.) This means that you could also make it so that the object would get destroyed if they did something crazy with it. Like there could be a pit in the room and the PLAYER could say "throw lamp in pit" and the result could be that the lamp is now gone.
+    + All game OBJECTS inherit from a base Object class that has a pure virtual function called "use" 
+    + You can create an object by subclassing Object and implementing the use function. This is optional but cool as you can then pass objects from your room to your buddy's room.
     + The lamp is the example of how to implement an object. Take a look at the lamp defined in Room0.
-17. The students should try to write the room descriptions so that they indicate the exits available in the room.
+17. The students should write the room descriptions so that they indicate the exits available in the room (unless you want your room to have some secret exit).
 18.  When the room is complete the room should return the direction that the PLAYER has chosen or that is the result of the solution to the puzzle. For example if the PLAYER chooses "north" the room should return "north"
 
 In this repository there are 3 files:
@@ -64,21 +64,15 @@ In this repository there are 3 files:
 + Adventure.py
 + Room0_jeff.py (as an example of a room)
 
-Once all of the rooms have been created, when they are placed in the same directory as Adventure.py, you just run Adventure.py and the rooms will load and you can play. The rooms have to correctly return the exits they are supposed to return as describe in map.txt or the game will crash. Here are some other considerations:
+Once all of the rooms have been created, when they are placed in the same directory as Adventure.py, you just run Adventure.py and the rooms will load and you can play. The rooms have to correctly return the exits they are supposed to return as described in map.txt or the game will crash. 
 
+*Here are some other considerations*:
 + Look at the definition of Objects in object.py. You can use the attributes of the object to do things like make objects that are too big to get or that are attached to something. You can have puzzles that change those settings and then allow changes in the way that the players interact with the objects.
 + Objects will travel with the player from room to room. You can coordinate with other Room Authors to get an object in some room, and then use it in another.
-+ rooms can change player stats. Rooms that do cool things should give the player a boost to their score. If players do dumb things you can hurt them by removing health. You might be generous and make an Object that the player could use to restore their health. You can also change the Player's condition - they could be any condition that you want. This can also pass from room to room and could affect the way play happens. For example, in one room, a person could fall in a river and be wet and cold. If they go to another room that is a wintery scene, say by an Ice Dragon, the person could freeze to death if they are cold and wet. The game would be over for them, and next time they wouldn't fall in the river.
-+ Objects also have a state. On, off, broken, glowing, whatever. Use that to create interesting things across rooms as well.
++ rooms can change player stats. Rooms that do cool things should give the player a boost to their score. If players do dumb things you can hurt them by removing health. You might be generous and make an Object that the player could use to restore their health. You can also change the Player's condition - they could be any condition that you want. This can also pass from room to room and could affect the way play happens. For example, in one room, a person could fall in a river and be wet and cold. If they go to another room that is a wintery scene, say by an Ice Dragon, the person could freeze to death if they are cold and wet. The game would be over for them, and next time they would be careful not to fall in the river.
++ Objects also have a state. On, off, broken, glowing, whatever. Use that to create interesting things across rooms as well. Maybe you find a broken magic wand in one room and if you find the tinker, they could fix it. 
+
 =======
-There was an issue with the way I created the repository and somehow we ended up with a forked repo. 
 
-This repo is the origninal which is great, but we need everyone to use the forked one now. 
+Enjoy this assignment - have fun with your room design. Work with people. Remember the MOST important thing here is that you make your room function according to the specifications. When you check your code in, you are asserting that there are NO BUGS in it. When you review your buddy's room YOU are asserting that YOU believe at the bottom of your soul that your buddy's room HAS NO BUGS. Wait till you see how many bugs we find when we try to play the game...
 
-Please go to: 
-
-https://github.com/se3150/f24-group-adventure-we-reallonthesameteam
-
-and make your pull requests there.
-
-Thank you.

@@ -37,13 +37,13 @@ end,5
 
  10. As mentioned above, once this map.txt is complete, the instructor will make a copy of this map.txt file (call it student_map.txt) and put a single student name along each room number.
  11. The students will need to create the rooms associated with their name. They will look at the connections to their room and make sure that their descriptions match those connections and that the player can GO or MOVE in those directions. Here are the requirements for the rooms:
- 12. Rooms are written as stand alone python programs. The file name is important and must follow the specification: Room<number>_<student_name>.py
+ 12. Rooms are written as stand alone python programs. The file name is important and must follow the specification: 'Room<number>_<student_name>.py'
  14. The rooms must support the following commands:
      
-+ go, move <direction> - allows the player to move to the next Room. Players can only move in the directions allowed by the specification for the room. 
-+ look <item> - provides a description of the item. the item can be in the player's inventory or it can be in an object array in the room. If no <item> is given, the room description is printed.
-+ get, take <item> - allows the player to pick up the item and put it into their inventory. The room must create an object of type Object for the player to pick it up. (See Objects) below.
-+ drop <item> - allows the player to remove an item from their inventory and place it in the room's list of Objects.
++ go, move "direction" - allows the player to move to the next Room. Players can only move in the directions allowed by the specification for the room. 
++ look "item" - provides a description of the item. the item can be in the player's inventory or it can be in an object array in the room. If no "item" is given, the room description is printed.
++ get, take "item" - allows the player to pick up the item and put it into their inventory. The room must create an object of type Object for the player to pick it up. (See Objects) below.
++ drop "item" - allows the player to remove an item from their inventory and place it in the room's list of Objects.
 + inventory - prints out the items in the PLAYERs inventory.
 + stats - prints out the PLAYERs statistics
 + help,? - prints out the list of commands
